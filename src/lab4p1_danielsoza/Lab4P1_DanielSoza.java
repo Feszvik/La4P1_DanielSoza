@@ -40,26 +40,150 @@ public class Lab4P1_DanielSoza {
         while (opcion < 0 || opcion > 4) {
             System.out.println();
             System.out.print("Opcion invalida, intente de nuevo: ");
+            System.out.println("");
+            System.out.println(" Menu");
+            System.out.println("1. Ejercicio 1");
+            System.out.println("2. Ejercicio 2");
+            System.out.println("3. Ejercicio 3");
+            System.out.println("4. Salir");
+            System.out.print("Ingrese su opcion: ");
             opcion = leer.nextInt();
         }
         return opcion;
     }
     
     public static void ejercicio1(){
+        leer.nextLine();
         System.out.print("Ingrese la primera cadena: ");
-        String contenedor = leer.next();
+        String contenedor = leer.nextLine();
+        int espacio = 0;
+        for (int i = 0; i < contenedor.length(); i++){
+            int n = contenedor.charAt(i);
+            if (n == 32){
+                espacio++;
+            }
+        }
+        if (espacio == contenedor.length()){
+            contenedor = "";
+        }
+        while (contenedor.length() < 1 ){
+            espacio = 0;
+            System.out.print("La cadena no puede estar vacia, ingrese nuevamente: ");
+            contenedor = leer.nextLine();
+            for (int i = 0; i < contenedor.length(); i++){
+                int n = contenedor.charAt(i);
+                if (n == 32){
+                    espacio++;
+                }
+            }
+            if (espacio == contenedor.length()){
+                contenedor = "";
+            }
+        }
         System.out.println();
         System.out.print("Ingrese la segunda cadena: ");
-        String contenido = leer.next();
+        String contenido = leer.nextLine();
+        espacio = 0;
+        for (int i = 0; i < contenido.length(); i++){
+            int n = contenido.charAt(i);
+            if (n == 32){
+                espacio++;
+            }
+        }
+        if (espacio == contenido.length()){
+            contenido = "";
+        }
+        while (contenido.length() < 1 ){
+            espacio = 0;
+            System.out.print("La cadena no puede estar vacia, ingrese nuevamente: ");
+            contenido = leer.nextLine();
+            for (int i = 0; i < contenido.length(); i++){
+                int n = contenido.charAt(i);
+                if (n == 32){
+                    espacio++;
+                }
+            }
+            if (espacio == contenido.length()){
+                contenido = "";
+            }
+        }
+        int cont = 0;
         while (contenido.length() > contenedor.length()){
             System.out.println();
             System.out.println("El tamano de la segunda cadena no puede ser mayor que el de la primera.");
             System.out.print("Ingrese la primera cadena: ");
-            contenedor = leer.next();
+            contenedor = leer.nextLine();
+            espacio = 0;
+            for (int i = 0; i < contenedor.length(); i++){
+                int n = contenedor.charAt(i);
+                if (n == 32){
+                    espacio++;
+                }
+            }
+            if (espacio == contenedor.length()){
+                contenedor = "";
+            }
+            while (contenedor.length() < 1 ){
+                espacio = 0;
+                System.out.print("La cadena no puede estar vacia, ingrese nuevamente: ");
+                contenedor = leer.nextLine();
+                for (int i = 0; i < contenedor.length(); i++){
+                    int n = contenedor.charAt(i);
+                    if (n == 32){
+                        espacio++;
+                    }
+                }
+                if (espacio == contenedor.length()){
+                    contenedor = "";
+                }
+            }
             System.out.println();
             System.out.print("Ingrese la segunda cadena: ");
-            contenido = leer.next();
+            contenido = leer.nextLine();
+            espacio = 0;
+            for (int i = 0; i < contenido.length(); i++){
+                int n = contenido.charAt(i);
+                if (n == 32){
+                    espacio++;
+                }
+            }
+            if (espacio == contenido.length()){
+                contenido = "";
+            }
+            while (contenido.length() < 1 ){
+                espacio = 0;
+                System.out.print("La cadena no puede estar vacia, ingrese nuevamente: ");
+                contenido = leer.nextLine();
+                for (int i = 0; i < contenido.length(); i++){
+                    int n = contenido.charAt(i);
+                    if (n == 32){
+                        espacio++;
+                    }
+                }
+                if (espacio == contenido.length()){
+                    contenido = "";
+                }
+            }
         }
+        for (int i = 0; i < contenedor.length(); i++){
+            for (int j = 0; j < contenido.length(); j++){
+                if (contenido.charAt(j) == contenedor.charAt(i+cont)){
+                    cont += 1;
+                }
+                else {
+                    cont = 0;
+                    j = contenido.length() + 1;
+                }
+            if (cont == contenido.length()){
+                System.out.println("La cadena "+ contenedor +" contiene la cadena "+ contenido);
+                i = contenedor.length() + 1;
+            }
+            }
+        }
+        if (cont != contenido.length()) {
+            System.out.println("La cadena "+ contenedor +" no contiene la cadena "+ contenido);
+        }
+        
     }
   
     
