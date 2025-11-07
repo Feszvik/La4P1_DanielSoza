@@ -19,7 +19,7 @@ public class Lab4P1_DanielSoza {
                 }
                 case 3 :
                 {
-                    
+                    ejercicio3();
                 }
             }
             op = Menu();
@@ -65,20 +65,59 @@ public class Lab4P1_DanielSoza {
     
     public static void ejercicio2(){
         int n;
+        int contl = 0;
+        int contn = 0;
+        int conts = 0;
+        int sumn = 0;
+        double suml = 0;
+        double sums = 0;
         String letra = "";
         String num = "";
         String simb = "";
+        leer.nextLine();
         System.out.print("Ingrese una cadena: ");
-        String cadena = leer.next();
+        String cadena = leer.nextLine();
+        System.out.println("");
+        int espacio = 0;
+        for (int i = 0; i < cadena.length(); i++){
+            n = cadena.charAt(i);
+            if (n == 32){
+                espacio++;
+            }
+        }
+        if (espacio == cadena.length()){
+            cadena = "";
+        }
+        while (cadena.length() < 1){
+            espacio = 0;
+            System.out.print("La cadena no puede estar vacia, ingrese nuevamente: ");
+            cadena = leer.nextLine();
+            for (int i = 0; i < cadena.length(); i++){
+                n = cadena.charAt(i);
+                if (n == 32){
+                    espacio++;
+                }
+            }
+            if (espacio == cadena.length()){
+                cadena = "";
+            }
+        }
         System.out.println("");
         for (int i = 0; i < cadena.length(); i++){
             n = cadena.charAt(i);
+            int numero = Character.getNumericValue(n);
             if ((n <= 90 && n >= 65) || (n <= 122 && n >= 97)){
                 letra += cadena.charAt(i);
+                contl += 1;
+                suml += n;
             } else if (n >= 48 && n <= 57){
                 num += cadena.charAt(i);
+                contn += 1;
+                sumn += numero;
             } else {
                 simb += cadena.charAt(i);
+                conts += 1;
+                sums += n;
             }
         }
         if (letra.length() == 0) {
@@ -99,9 +138,69 @@ public class Lab4P1_DanielSoza {
             System.out.println("Letras: "+ simb);
         }
         
+        System.out.println("");
+        System.out.println("Total letras: "+ contl);
+        System.out.println("Total numeros: "+ contn);
+        System.out.println("Total simbolos: "+ conts);
+        System.out.println("Suma de los digitos: "+ sumn);
+        
+        System.out.println("");
+        System.out.println("Promedio ASCII de las letras: "+ (suml/contl));
+        System.out.println("Promedio ASCII de los simbolos: "+ (sums/conts));
+        System.out.println("");
+        
+        System.out.println("Codigos ASCII");
+        for (int i = 0; i < cadena.length(); i++) {
+            char l = cadena.charAt(i);
+            n = cadena.charAt(i);
+            if ((n <= 90 && n >= 65) || (n <= 122 && n >= 97)){
+                System.out.println(l +" -> "+ n +" (Letra)");
+            } else if (n >= 48 && n <= 57){
+                System.out.println(l +" -> "+ n +" (Numero)");
+            } else {
+                System.out.println(l +" -> "+ n +" (Simbolo)");
+            }
+        }
     }
     
-    
-    
-    
+    public static void ejercicio3(){
+        leer.nextLine();
+        System.out.print("Ingrese una palabra: ");
+        String palabra = leer.nextLine().toLowerCase();
+        String alreves= "";
+        System.out.println("");
+        int espacio = 0;
+        for (int i = 0; i < palabra.length(); i++){
+            int n = palabra.charAt(i);
+            if (n == 32){
+                espacio++;
+            }
+        }
+        if (espacio == palabra.length()){
+            palabra = "";
+        }
+        while (palabra.length() <= 1 ){
+            espacio = 0;
+            System.out.print("La cadena no puede estar vacia, ingrese nuevamente: ");
+            palabra = leer.nextLine();
+            for (int i = 0; i < palabra.length(); i++){
+                int n = palabra.charAt(i);
+                if (n == 32){
+                    espacio++;
+                }
+            }
+            if (espacio == palabra.length()){
+                palabra = "";
+            }
+        }
+        for ( int i=0; i<palabra.length();i++){
+            alreves+=palabra.charAt(palabra.length()-1-i);
+        }
+        System.out.println(alreves);
+        if (alreves.equals(palabra)){
+            System.out.println("La palabra "+ palabra +" es un palindromo");
+        } else {
+            System.out.println("la palabra "+ palabra +" no es un palindromo");
+        }
+    }
 }
